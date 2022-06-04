@@ -3,6 +3,7 @@ import {
   MessageBody,
   SubscribeMessage,
   WebSocketGateway,
+  WebSocketServer,
 } from '@nestjs/websockets';
 import { NestGateway } from '@nestjs/websockets/interfaces/nest-gateway.interface';
 import { ChatService } from './chat.service';
@@ -11,6 +12,8 @@ import { Chat } from './chat.entity';
 
 @WebSocketGateway()
 export class ChatGateway implements NestGateway {
+  @WebSocketServer()
+  server;
   constructor(private chatService: ChatService) {}
 
   afterInit(server: any) {
