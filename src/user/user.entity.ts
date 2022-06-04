@@ -1,19 +1,23 @@
-import { Prop, prop } from '@typegoose/typegoose';
+import { index, Prop } from '@typegoose/typegoose';
 import { ObjectId } from 'mongoose';
 import { Transform } from '@nestjs/class-transformer';
 
 export class User {
   @Transform(({ value }) => value.toString())
   _id: ObjectId;
-  @prop({
+  @Prop({
     required: [true, 'Message is required'],
+    unique: true,
+    type: String,
   })
   uid: string;
-  @prop({
+  @Prop({
     required: [true, 'Email is required'],
+    unique: true,
+    type: String,
   })
   email: string;
-  @prop({
+  @Prop({
     required: [true, 'Name is required'],
   })
   name: string;

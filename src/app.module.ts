@@ -14,7 +14,7 @@ import { PreuthMiddleware } from './auth/preauth.middleware';
 @Module({
   imports: [
     TypegooseModule.forRoot(
-      'mongodb+srv://kalozfauzan:kalozfauzan2@chat.e0eq6tx.mongodb.net/?retryWrites=true&w=majority',
+      'mongodb+srv://kalozfauzan:kalozfauzan2@cluster0.oedvdwu.mongodb.net/?retryWrites=true&w=majority',
     ),
     ChatModule,
     UserModule,

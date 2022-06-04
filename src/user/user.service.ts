@@ -14,15 +14,15 @@ export class UserService {
   }
 
   async createUser(user: User): Promise<User> {
-    const isExist = await this.userModel.findOne({
-      uid: user.uid,
-    });
-    if (isExist) return isExist;
+    // const isExist = await this.userModel.findOne({
+    //   uid: user.uid,
+    // });
+    // if (isExist) return isExist;
     const createUser = new this.userModel(user);
     return await createUser.save();
   }
   async getUser(uid: string): Promise<User> {
-    return await this.userModel.findOne({
+    return this.userModel.findOne({
       uid: uid,
     });
   }
